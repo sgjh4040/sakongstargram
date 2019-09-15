@@ -10,13 +10,17 @@
     "nodemon": "^1.19.2"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/server.js",
+    "deploy": "prisma deploy"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
     "dotenv": "^8.1.0",
-    "graphql-yoga": "^1.18.3"
+    "graphql-tools": "^4.0.5",
+    "graphql-yoga": "^1.18.3",
+    "merge-graphql-schemas": "^1.7.0",
+    "morgan": "^1.9.1"
   }
 }
