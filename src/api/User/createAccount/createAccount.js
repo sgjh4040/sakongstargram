@@ -9,6 +9,7 @@ export default {
                 username,
                 email,
                 firstName,
+                lastName,
                 bio
             });
             return user;
