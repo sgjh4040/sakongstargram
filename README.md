@@ -1,2 +1,2 @@
 # sakongstargram
-instagram clone
+instagram clone(by graphql)
