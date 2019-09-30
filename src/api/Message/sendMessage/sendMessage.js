@@ -1,5 +1,5 @@
-import { prisma } from "../../../generated/prisma-client";
-import {ROOM_FRAGMENT} from "../../fragments";
+import { prisma } from "../../../../generated/prisma-client";
+import {ROOM_FRAGMENT} from "../../../fragments";
 export default {
     Mutation:{
         sendMessage: async (_,args,{request,isAuthenticated})=>{
@@ -23,7 +23,6 @@ export default {
                     throw Error("방을 찾지 못했습니다.")
                 }
             }
-            console.log(room)
             const getTo = room.participants.filter(participant => participant.id !==user.id)[0];
             return prisma.createMessage({
                 text:message,
