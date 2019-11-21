@@ -1,5 +1,5 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { ROOM_FRAGMENT } from "../../../fragments";
+
 
 export default {
     Query:{
@@ -13,7 +13,7 @@ export default {
                 }
             });
             if (canSee){
-                return prisma.room({id}).$fragment(ROOM_FRAGMENT);
+                return prisma.room({id});
 
             }else{
                 throw Error("방 접근권한이 없습니다.")
