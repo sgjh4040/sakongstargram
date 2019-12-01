@@ -9,6 +9,8 @@ export default {
                 .user({ id: user.id })
                 .following()
 
+                console.log(following);
+
             return prisma.posts({
                 where: {
                     user: {
