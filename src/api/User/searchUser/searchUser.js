@@ -3,6 +3,7 @@ import { prisma } from "../../../../generated/prisma-client";
 export default {
     Query: {
         searchUser: async (_,args)=>{
+            console.log("searchUser")
             console.log(args.term);
             return await prisma.users({
                 where:{

@@ -4,6 +4,7 @@ import { prisma } from "../../../../generated/prisma-client";
 export default {
     Query:{
         searchPost: async (_,args)=>{
+            console.log("searchpost");
             return await prisma.posts({
                 where:{
                     OR:[

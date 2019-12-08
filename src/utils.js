@@ -24,8 +24,8 @@ export const sendSecretMail = (adress, secret) => {
     const email = {
       from: "sgjh40402@gmail.com",
       to: adress,
-      subject: "🔒Login Secret for sakongstagram🔒",
-      html: `Hello! Your login secret it ${secret}.<br/>Copy paste on the app/website to log in`
+      subject: "🔒인증키입니다. sakongstagram🔒",
+      html: `안녕하세요 인증키는 ${secret}.<br/>복사 붙여넣기 해주세요`
     };
     return sendMail(email);
   };

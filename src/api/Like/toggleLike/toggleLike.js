@@ -4,6 +4,8 @@ import { prisma } from "../../../../generated/prisma-client";
 export default {
     Mutation:{
         toggleLike: async (_,args,{request})=>{
+            console.log("toggle like");
+            console.log(request.user);
             isAuthenticated(request);
             const {postId} = args;
             const {user} = request;
@@ -22,6 +24,7 @@ export default {
                     ]
               };
             try{
+                console.log("toggle like");
                 const existingLike = await prisma.$exists.like(filterOptions);
                 if (existingLike){
                     await prisma.deleteManyLikes(filterOptions);
@@ -41,6 +44,7 @@ export default {
                 }
                 return true;
             }catch(err){
+                console.log(err);
                 return false;
 
             }
