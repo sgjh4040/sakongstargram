@@ -1,32 +1,29 @@
 import { prisma } from "../../../../generated/prisma-client";
 
 export default {
-    Subscription:{
+    Subscription: {
         newMessage: {
-            subscribe:(_,args,ctx,info)=>{
-                const {roomId} = args;
+            subscribe: (_, args) => {
+                const { roomId } = args;
                 console.log(roomId);
-                return prisma.$subscribe.message({
-                    where:{
-                        mutation_in:['CREATED', 'UPDATED']
-                    }
-                },info).node();
-                // return prisma.$subscribe.message({
-                //     AND:[
-                //         {mutation_in:"CREATED"},
-                //         {
-                //             node:{
-                //                 room:{id:roomId}
-                //             }
-                //         }
-                //     ]
-                // },info).node();
-                
+                return prisma.$subscribe
+                    .message({
+                        AND: [
+                            { mutation_in: "CREATED" },
+                            {
+                                node: {
+                                    room: { id: roomId }
+                                }
+                            }
+                        ]
+                    })
+                    .node();
+
             },
-            resolver: payload => {
-                console.log("resolver");
-                return payload.node()
-            }
+            resolve: (payload, args, context) => {
+                console.log(args, context);
+                return payload;
+              }
         }
     }
 };
