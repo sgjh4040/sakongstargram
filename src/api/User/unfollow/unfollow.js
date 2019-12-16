@@ -4,6 +4,7 @@ import {prisma} from "../../../../generated/prisma-client";
 export default {
     Mutation:{
         unfollow: async (_,args,{request})=>{
+            console.log("unfollow")
             isAuthenticated(request);
             const {id} = args;
             const {user} = request;

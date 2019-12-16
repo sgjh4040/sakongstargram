@@ -1,6 +1,6 @@
 type User {
   id: ID! @id
-  avatar: String
+  avatar: String @defualt(value:"https://bootdey.com/img/Content/avatar/avatar7.png")
   username: String! @unique
   email: String! @unique
   firstName: String @defualt(value:"")
@@ -46,7 +46,6 @@ type Comment {
   post: Post! @relation(name: "CommentOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-
 }
 
 type File {
@@ -71,4 +70,15 @@ type Message{
   room: Room!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+}
+
+type Notification{
+  id: ID! @id
+  message: String!
+  from: User! @relation(name: "NotiFrom")
+  to: User! @relation(name: "NotiTo")
+  post: Post!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  readYn: Boolean! @default(value: false)
 }

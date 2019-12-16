@@ -81,3 +81,12 @@ type Message{
   createdAt: String
   updatedAt: String
 }
+type Notification{
+  id: ID!
+  message: String!
+  from: User! 
+  to: User! 
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}

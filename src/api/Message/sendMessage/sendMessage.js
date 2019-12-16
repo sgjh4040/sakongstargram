@@ -8,6 +8,8 @@ export default {
             let room;
             if (roomId === undefined) {
                 console.log("here1")
+                console.log(user.id);
+                console.log(toId);
                 if (user.id !== toId) {
                     room = await prisma.createRoom({
                         participants: {
@@ -21,6 +23,7 @@ export default {
                         }
                     }
                 `);
+                console.log("room",room);
                 }
             } else {
                 console.log("here2")
