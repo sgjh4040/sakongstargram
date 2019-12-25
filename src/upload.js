@@ -24,12 +24,17 @@ const upload = multer({
 
 // const upload = multer({ dest: "upload/" });
 export const uploadMiddleWare = upload.single("file");
+export const uploadsMiddleWare = upload.array("file",2);
 
 export const uploadCOntroller = (req, res) => {
-    console.log(req.file);
     const {
         file: { location }
     } = req;
     console.log("저장 사진 정보:",location);
     res.json({ location });
+}
+export const uploadController = (req, res) => {
+  const {files} = req;
+  const locations = files.map(file => file.location);
+  res.json(locations);
 }

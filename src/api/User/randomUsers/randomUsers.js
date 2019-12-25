@@ -9,15 +9,23 @@ export default {
             const {size} = args;
             let users = [];
             const allUserCount =await prisma.usersConnection().aggregate().count();
+            const sizeArray = Array(allUserCount).fill().map((v, i) => i );
             for(let i=0; i<size;i++){
-                let random = Math.floor(Math.random()*allUserCount);
-                const user = await prisma.users({
-                    first:1,
-                    skip:random,
-                    
-                })
-                users.push(user[0]);
+                let random = sizeArray.splice(Math.floor(Math.random() * sizeArray.length), 1)[0];
+                if(random === undefined){
+                    break;
+                }else{
+                    const user = await prisma.users({
+                        first:1,
+                        skip:random,
+                        
+                    })
+                    users.push(user[0]);
+                }
             }
+            console.log("user",user);
+            console.log(users);
+            
             return users.filter(m => m.id !== user.id);
             
         }
