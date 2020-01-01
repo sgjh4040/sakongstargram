@@ -1,0 +1,3 @@
+type Query{
+    seeFeeds(pageNumber: Int!, items: Int!):[Post!]!
+}

@@ -31,6 +31,7 @@ type Post {
   user: User!
   likes: [Like!]!
   comments: [Comment!]!
+  postsCount: Int!
   isLiked:Boolean!
   likeCount: Int!
   commentCount: Int!

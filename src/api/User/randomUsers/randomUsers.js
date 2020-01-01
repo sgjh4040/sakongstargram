@@ -23,9 +23,6 @@ export default {
                     users.push(user[0]);
                 }
             }
-            console.log("user",user);
-            console.log(users);
-            
             return users.filter(m => m.id !== user.id);
             
         }

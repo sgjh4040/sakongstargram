@@ -24,7 +24,7 @@ const upload = multer({
 
 // const upload = multer({ dest: "upload/" });
 export const uploadMiddleWare = upload.single("file");
-export const uploadsMiddleWare = upload.array("file",2);
+export const uploadsMiddleWare = upload.array("file",5);
 
 export const uploadCOntroller = (req, res) => {
     const {
@@ -35,6 +35,7 @@ export const uploadCOntroller = (req, res) => {
 }
 export const uploadController = (req, res) => {
   const {files} = req;
+  console.log(files);
   const locations = files.map(file => file.location);
   res.json(locations);
 }
