@@ -1,9 +1,9 @@
 type User {
   id: ID! @id
-  avatar: String @defualt(value:"https://bootdey.com/img/Content/avatar/avatar7.png")
+  avatar: String! @default(value:"https://bootdey.com/img/Content/avatar/avatar7.png")
   username: String! @unique
   email: String! @unique
-  firstName: String @defualt(value:"")
+  firstName: String @default(value:"")
   lastName: String
   bio: String
   followers: [User!]! @relation(name: "FollowRelation")
