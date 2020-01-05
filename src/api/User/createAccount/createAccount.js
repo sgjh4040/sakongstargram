@@ -24,12 +24,7 @@ export default {
                 firstName,
                 lastName,
                 avatar,
-                bio,
-                following:{
-                    connect:{
-                        id:"ck4vke3xm002n0774xixbdid1"
-                    }
-                }
+                bio
             });
             return true
 
