@@ -70,6 +70,7 @@ type Message{
   room: Room!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  readYn: Boolean! @default(value: false)
 }
 
 type Notification{
