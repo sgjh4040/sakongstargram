@@ -42,6 +42,7 @@ export default {
             const getTo = room.participants.filter(participant => participant.id !== user.id)[0];
             const result= prisma.createMessage({
                 text: message,
+                readYn: false,
                 from: {
                     connect: { id: user.id }
                 },
