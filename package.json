@@ -12,7 +12,7 @@
   },
   "scripts": {
     "deploy": "prisma deploy",
-    "generate": "prisma generate",
+    "generate": "prisma deploy --force  &&prisma generate",
     "prisma": "npm run deploy && npm run generate",
     "dev": "nodemon --exec babel-node src/server.js",
     "prebuild": "npm run generate",
