@@ -11,7 +11,8 @@ export default {
                     participants_some:{
                         id: user.id
                     }
-                }
+                },
+                orderBy: "createdAt_DESC"
             });
         }
     }
