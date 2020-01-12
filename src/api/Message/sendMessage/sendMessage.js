@@ -40,7 +40,7 @@ export default {
                 }
             }
             const getTo = room.participants.filter(participant => participant.id !== user.id)[0];
-            const result= prisma.createMessage({
+            const result=await prisma.createMessage({
                 text: message,
                 readYn: false,
                 from: {
@@ -57,6 +57,12 @@ export default {
                     }
                 }
             });
+            const now = new Date();
+            const update = prisma.updateRoom({
+                where: {id:room.id},
+                data:{lastMessage: now.toISOString()}
+            })
+            update.then(res => console.log("res",res));
             return result;
 
         }

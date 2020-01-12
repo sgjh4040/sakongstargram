@@ -61,6 +61,7 @@ type Room {
   messages: [Message!]!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  lastMessage: DateTime
 }
 type Message{
   id: ID! @id

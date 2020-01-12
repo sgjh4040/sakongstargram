@@ -12,7 +12,7 @@ export default {
                         id: user.id
                     }
                 },
-                orderBy: "createdAt_DESC"
+                orderBy: "updatedAt_DESC"
             });
         }
     }

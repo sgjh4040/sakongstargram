@@ -72,6 +72,7 @@ type Room {
   messages: [Message!]!
   createdAt: String
   updatedAt: String
+  lastMessage: String
   unReadCount: Int!
 }
 type Message{
