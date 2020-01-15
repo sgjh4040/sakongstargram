@@ -10,10 +10,12 @@ import {uploadCOntroller, uploadMiddleWare, uploadsMiddleWare, uploadController}
 
 const PORT = process.env.PORT || 4000;
 
-
 const server = new GraphQLServer({
-  schema,
-  context: ({request}) =>({request,isAuthenticated})
+  
+  context: async({request,connection}) =>{
+    return {request,isAuthenticated}
+  },
+  schema
 });
 
 server.express.use(logger("dev"));
